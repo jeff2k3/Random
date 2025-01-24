@@ -12,17 +12,17 @@ final class Random {
         $entropy = hash('sha256', uniqid('', true) . microtime() . $salt . random_bytes(16));
         $characterPool = preg_replace('/[^a-zA-Z0-9]/u', '', base64_encode($entropy));
 
-        if(empty($characterPool)) {
+        $poolLength = strlen($characterPool);
+        
+        if($poolLength <= 0) {
             throw new \RuntimeException("Character pool is empty. Ensure enough entropy is provided.");
         }
-        $pool = "";
-        $poolLength = strlen($characterPool);
-
-        for($i = 0; $i < $length; $i++) {
-            $pool .= $characterPool[random_int(0, $poolLength - 1)];
+       $characters = [];
+        
+        for ($i = 0; $i < $length; $i++) {
+            $characters[] = $characterPool[random_int(0, $poolLength - 1)];
         }
-
-        return $pool;
+        return implode($characters);
     }
 }
 ?>

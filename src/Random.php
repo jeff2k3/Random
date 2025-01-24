@@ -19,7 +19,7 @@ final class Random {
         }
        $characters = [];
         
-        for ($i = 0; $i < $length; $i++) {
+        for($i = 0; $i < $length; $i++) {
             $characters[] = $characterPool[random_int(0, $poolLength - 1)];
         }
         return implode($characters);

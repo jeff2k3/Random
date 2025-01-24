@@ -9,10 +9,8 @@ final class Random {
             throw new \InvalidArgumentException("Lenght must be greater than 0.");
         }
         $salt = implode($salts);
-        
         $entropy = hash('sha256', uniqid('', true) . microtime() . $salt . random_bytes(16));
-        $characterPool = preg_replace('/[^a-zA-Z0-9]/u', '', base64_encode($entropy));
-
+        $characterPool = rtrim(base64_encode($entropy), "=");
         $characters = [];
         
         for($i = 0; $i < $length; $i++) {

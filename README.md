@@ -35,7 +35,6 @@ try {
 
 ### Exceptions
 - **`InvalidArgumentException:`** Thrown when the specified length is less than or equal to 0.
-- **`RuntimeException:`** Thrown when the character pool is empty due to insufficient entropy.
 
 ---
 

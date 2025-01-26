@@ -22,7 +22,7 @@ require_once 'Random.php';
 require_once 'Random.php';
 
 try {
-    $randomString = Random::alpha_num(['salt1', 'salt2'], 16);
+    $randomString = Random::alpha_num(16, ['salt1', 'salt2']);
     echo $randomString;
 } catch (Exception $e) {
     echo 'Error: ' . $e->getMessage();
@@ -30,8 +30,8 @@ try {
 ```
 
 ### Parameters
+- **`$length` (int):** Required. The length of the generated string.
 - **`$salts` (array):** Optional. An array of strings to enhance randomness.
-- **`$length` (int):** Required. The length of the generated string (default: 32).
 
 ### Exceptions
 - **`InvalidArgumentException:`** Thrown when the specified length is less than or equal to 0.
@@ -48,12 +48,12 @@ fG9aX2kL3QcT5WdR8uNy1jVpZ7Bo6MHt
 
 ## Methods
 
-### `alpha_num(array $salts = [], int $length = 32): string`
+### `alpha_num(int $length, array $salts = []): string`
 Generates a random alphanumeric string.
 
 - **Input:**
-  - `$salts` (array): Additional strings to increase randomness.
   - `$length` (int): Length of the output string.
+  - `$salts` (array): Additional strings to increase randomness.
 - **Output:**
   - Returns a secure, random alphanumeric string.
 

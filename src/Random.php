@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 final class Random {
 
-    public static function alpha_num(array $salts = [], int $length = 32) : string {
+    public static function alpha_num(int $length, array $salts = []) : string {
         if($length <= 0) {
             throw new \InvalidArgumentException("Lenght must be greater than 0.");
         }

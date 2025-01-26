@@ -30,7 +30,7 @@ try {
 ```
 
 ### Parameters
-- **`$length` (int):** Required. The length of the generated string.
+- **`$length` (int):** Required. The length of the generated string. **(max. 128)**
 - **`$salts` (array):** Optional. An array of strings to enhance randomness.
 
 ### Exceptions

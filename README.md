@@ -34,7 +34,7 @@ try {
 - **`$salts` (array):** Optional. An array of strings to enhance randomness.
 
 ### Exceptions
-- **`InvalidArgumentException:`** Thrown when the specified length is less than or equal to 0.
+- **`InvalidArgumentException:`** Thrown when the specified length is less than 1 or greater than to 128.
 
 ---
 

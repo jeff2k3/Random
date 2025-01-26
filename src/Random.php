@@ -11,11 +11,13 @@ final class Random {
         $salt = implode($salts);
         $entropy = hash('sha256', uniqid('', true) . microtime() . $salt . random_bytes(16));
         $characterPool = rtrim(base64_encode($entropy), "=");
+        
         $characters = [];
         
         for($i = 0; $i < $length; $i++) {
             $characters[] = $characterPool[random_int(0, strlen($characterPool) - 1)];
         }
+        
         return implode($characters);
     }
 }
